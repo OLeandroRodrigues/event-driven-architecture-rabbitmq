@@ -7,27 +7,27 @@ It is an **architecture-focused example** that demonstrates how to design, struc
 
 ---
 
-## 🎯 Goals of this repository
+## Goals of this repository
 
-- Demonstrate **Event-Driven Architecture (EDA)** patterns in real-world scenarios  
-- Show how to **decouple services** using asynchronous messaging  
-- Provide **production-grade patterns**, not toy examples  
-
----
-
-## 🧠 Architectural Concepts Covered
-
-- Event Producers & Consumers  
-- Exchange / Queue / Binding strategies  
-- **Idempotent Consumers (Inbox Pattern)**  
-- Retry policies & **Dead Letter Queues (DLQ)**  
-- Message acknowledgements (**ACK / NACK**)  
-- CorrelationId & observability-friendly messaging  
-- Clean Architecture / DDD-friendly boundaries  
+- Demonstrate **Event-Driven Architecture (EDA)** patterns in real-world scenarios
+- Show how to **decouple services** using asynchronous messaging
+- Provide **production-grade patterns**, not toy examples
 
 ---
 
-## 🏗 Project Scope
+## Architectural Concepts Covered
+
+- Event Producers & Consumers
+- Exchange / Queue / Binding strategies
+- **Idempotent Consumers (Inbox Pattern)**
+- Retry policies & **Dead Letter Queues (DLQ)**
+- Message acknowledgements (**ACK / NACK**)
+- CorrelationId & observability-friendly messaging
+- Clean Architecture / DDD-friendly boundaries
+
+---
+
+## Project Scope
 
 This repository focuses on **how services interact**, not on business complexity.
 
@@ -44,17 +44,7 @@ This repository focuses on **how services interact**, not on business complexity
 
 ---
 
-## 🛠 Tech Stack
-
-- .NET 8  
-- RabbitMQ  
-- Docker & Docker Compose  
-- C#  
-- Clean Architecture principles  
-
----
-
-## 🧩 Who is this for?
+## Who is this for?
 
 - Software Engineers learning **distributed systems**
 - Developers preparing for **senior / staff interviews**
@@ -63,11 +53,38 @@ This repository focuses on **how services interact**, not on business complexity
 
 ---
 
-## 📚 How to use this repo
+## Architecture Documentation
 
-- Clone and run locally using **Docker Compose**
-- Read the **Architecture Wiki** for design decisions
-- Use it as a **reference**, not as a dependency
+All architectural decisions, trade-offs, and messaging patterns are **fully documented**.
+
+**Start here:**  [`docs/README.md`](docs/README.md)
+
+This documentation covers:
+- Core messaging concepts
+- Failure scenarios and recovery strategies
+- Idempotency and delivery guarantees
+- Architecture Decision Records (ADR)
+
+---
+
+## How to use this repo
+
+This repository currently focuses on **architecture and documentation**.
+
+Executable code and runnable examples will be added incrementally.  
+Once available, the project will be runnable **locally via Docker Compose**.
+
+For now, use this repository as an **architecture reference**.
+
+---
+
+## Tech Stack
+
+- .NET 8
+- RabbitMQ
+- Docker & Docker Compose
+- C#
+- Clean Architecture principles
 
 ---
 
