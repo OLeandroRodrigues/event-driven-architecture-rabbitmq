@@ -19,5 +19,4 @@
 | #   | Decision | Status |
 |----:|---------|--------|
 | ADR-001 | [Why RabbitMQ](decisions/adr-001-why-rabbitmq.md) | ✅ Completed |
-| ADR-002 | [Delivery Guarantees](decisions/adr-002-delivery-guarantees.md) | 🚧 Draft  |
-| ADR-003 | [Idempotency Strategy](decisions/adr-003-idempotency-strategy.md) | ⏳ Planned |
+| ADR-002 | [Delivery Guarantees](decisions/adr-002-delivery-guarantees.md) | ✅ Completed |
