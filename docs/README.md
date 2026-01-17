@@ -4,8 +4,8 @@
 
 | #   | Document | Status |
 |----:|---------|--------|
-| 1.1 | [Producers & Consumers](architecture/producer-consumer.md) | ⏳ Planned |
-| 1.2 | [Exchange / Queue / Binding](architecture/exchange-queue-binding.md) | ⏳ Planned |
+| 1.1 | [Producers & Consumers](architecture/producer-consumer.md) | ✅ Completed |
+| 1.2 | [Exchange / Queue / Binding](architecture/exchange-queue-binding.md) | ✅ Completed |
 | 1.3 | [Idempotent Consumers (Inbox Pattern)](architecture/idempotency-inbox.md) | ⏳ Planned |
 | 1.4 | [Retry & Dead Letter Queues (DLQ)](architecture/retry-and-dlq.md) | ⏳ Planned |
 | 1.5 | [Message Acknowledgements (ACK / NACK)](architecture/acknowledgements.md) | ⏳ Planned |
