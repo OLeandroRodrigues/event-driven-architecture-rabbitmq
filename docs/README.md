@@ -10,7 +10,7 @@
 | 1.4 | [Retry & Dead Letter Queues (DLQ)](architecture/retry-and-dlq.md) | ✅ Completed |
 | 1.5 | [Message Acknowledgements (ACK / NACK)](architecture/acknowledgements.md) | ✅ Completed |
 | 1.6 | [Correlation & Observability](architecture/correlation-and-observability.md) | ✅ Completed |
-| 1.7 | [Clean Architecture & DDD-Friendly Boundaries](architecture/clean-architecture-ddd.md) | ⏳ Planned |
+| 1.7 | [Clean Architecture & DDD-Friendly Boundaries](architecture/clean-architecture-ddd.md) | ✅ Completed |
 
 ---
 
