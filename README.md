@@ -27,6 +27,21 @@ It is an **architecture-focused example** that demonstrates how to design, struc
 
 ---
 
+## Architecture & Design
+
+This repository places a strong emphasis on **explicit architectural design**.
+
+Key architectural and design aspects are documented, including:
+- High-level system architecture and service boundaries
+- Code structure and layer responsibilities
+- Messaging flow and interaction patterns
+- Design trade-offs and architectural decisions
+
+See:
+- [Architecture Overview](docs/architecture/architecture-overview.md)
+- [Code Structure & Architecture Mapping](docs/architecture/code-structure.md)
+- [Architectural Decision Records (ADR)](docs/decisions)
+
 ## Project Scope
 
 This repository focuses on **how services interact**, not on business complexity.

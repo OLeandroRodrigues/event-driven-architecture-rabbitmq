@@ -1,5 +1,14 @@
 ## Architecture Documentation
 
+### 0. Architecture & Code Structure
+
+| Document | Description |Status | 
+|--------|------------| ---|
+| [Architecture Overview](architecture/architecture-overview.md) | High-level system view | ⏳ Planned |
+| [Code Structure & Architecture Mapping](architecture/code-structure.md) | How architecture maps to the codebase | ✅ Completed |
+
+---
+
 ### 1. Core Concepts
 
 | #   | Document | Status |
@@ -22,6 +31,8 @@
 | ADR-002 | [Delivery Guarantees](decisions/adr-002-delivery-guarantees.md) | ✅ Completed |
 | ADR-003 | [Idempotency Strategy (Inbox Pattern)](decisions/adr-003-idempotency-strategy.md) | ✅ Completed |
 | ADR-004 | [Retry & Dead Letter Queue (DLQ) Strategy](decisions/adr-004-retry-and-dlq.md) | ✅ Completed |
+
+---
 
 ## Documentation Status Legend
 
