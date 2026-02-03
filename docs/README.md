@@ -4,7 +4,7 @@
 
 | Document | Description |Status | 
 |--------|------------| ---|
-| [Architecture Overview](architecture/architecture-overview.md) | High-level system view | ⏳ Planned |
+| [Architecture Overview](architecture/architecture-overview.md) | High-level system view | ✅ Completed |
 | [Code Structure & Architecture Mapping](architecture/code-structure.md) | How architecture maps to the codebase | ✅ Completed |
 
 ---
