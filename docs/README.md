@@ -1,3 +1,10 @@
+## Start Here
+
+New to this documentation?
+
+**[START HERE](START-HERE.md)** — Recommended entry point for understanding the architecture,
+documentation structure, and reading order.
+
 ## Architecture Documentation
 
 ### 0. Architecture & Code Structure

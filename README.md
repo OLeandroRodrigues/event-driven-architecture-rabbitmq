@@ -72,13 +72,13 @@ This repository focuses on **how services interact**, not on business complexity
 
 All architectural decisions, trade-offs, and messaging patterns are **fully documented**.
 
-**Start here:**  [`docs/README.md`](docs/README.md)
+## Start Here
 
-This documentation covers:
-- Core messaging concepts
-- Failure scenarios and recovery strategies
-- Idempotency and delivery guarantees
-- Architecture Decision Records (ADR)
+If this is your first time exploring this repository, start here:
+
+**[START HERE – How to navigate this repository](docs/START-HERE.md)**
+
+This guide explains the project goals, architecture-first approach, and the recommended reading order.
 
 ---
 
