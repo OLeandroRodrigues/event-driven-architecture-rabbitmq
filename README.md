@@ -93,6 +93,20 @@ For now, use this repository as an **architecture reference**.
 
 ---
 
+## Code Status
+
+This repository follows an **architecture-first** approach.
+
+The initial **code skeleton** has been added and reflects the documented
+Clean Architecture and design decisions.
+
+📂 Source code lives under [`/src`](src)
+
+Implementation will be added incrementally, following the architecture
+and ADRs defined in this repository.
+
+---
+
 ## Tech Stack
 
 - .NET 8

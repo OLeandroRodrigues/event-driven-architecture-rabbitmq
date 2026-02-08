@@ -117,4 +117,19 @@ If you want to see how architecture maps to code:
 
 ---
 
+## Code Skeleton
+
+An initial **Clean Architecture code skeleton** is available.
+
+📂 Source code: [`/src`](../src)
+
+At this stage:
+- The focus is on **structure and boundaries**
+- No business logic or infrastructure implementation is provided yet
+- The code mirrors the documented architecture
+
+Implementation will be introduced incrementally, guided by the docs and ADRs.
+
+---
+
 Enjoy exploring the architecture 
