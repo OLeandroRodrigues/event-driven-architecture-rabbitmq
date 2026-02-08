@@ -1,0 +1,64 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Test results
+TestResults/
+
+# Coverage reports
+coverage/
+*.coverage
+*.coveragexml
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+.nuget/
+
+# ASP.NET / .NET
+appsettings.Development.json
+appsettings.Local.json
+
+# Docker
+docker-data/
+**/docker-data/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Secrets
+secrets.json
+*.secrets.json
+
+# Node (if any frontend tooling is added later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Generated files
+*.generated.cs
