@@ -1,64 +1,123 @@
-# Build results
+##################################################
+# Build Results
+##################################################
+
 bin/
 obj/
+out/
+artifacts/
 
-# Visual Studio
+##################################################
+# .NET / Visual Studio
+##################################################
+
 .vs/
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
+*.userprefs
 
-# Visual Studio Code
-.vscode/
-
+##################################################
 # Rider / JetBrains
+##################################################
+
 .idea/
 *.sln.iml
 
-# OS generated files
+##################################################
+# VS Code
+##################################################
+
+.vscode/
+
+##################################################
+# OS Files
+##################################################
+
 .DS_Store
 Thumbs.db
+ehthumbs.db
 
+##################################################
 # Logs
+##################################################
+
 *.log
+logs/
+log/
 
-# Test results
+##################################################
+# Test Results & Coverage
+##################################################
+
 TestResults/
-
-# Coverage reports
 coverage/
 *.coverage
 *.coveragexml
+*.trx
 
+##################################################
 # NuGet
+##################################################
+
 packages/
 *.nupkg
 *.snupkg
 .nuget/
+project.lock.json
+project.assets.json
 
-# ASP.NET / .NET
+##################################################
+# ASP.NET / Configuration Overrides
+##################################################
+
 appsettings.Development.json
 appsettings.Local.json
+appsettings.*.local.json
 
-# Docker
-docker-data/
-**/docker-data/
-
-# Temporary files
-*.tmp
-*.temp
-*.bak
-
+##################################################
 # Secrets
+##################################################
+
 secrets.json
 *.secrets.json
 
-# Node (if any frontend tooling is added later)
+##################################################
+# Docker
+##################################################
+
+docker-data/
+**/docker-data/
+docker-compose.override.yml
+
+##################################################
+# Temporary / Backup
+##################################################
+
+*.tmp
+*.temp
+*.bak
+*.swp
+
+##################################################
+# Generated Code
+##################################################
+
+*.generated.cs
+
+##################################################
+# Node (in case frontend tooling is added)
+##################################################
+
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Generated files
-*.generated.cs
+##################################################
+# Misc
+##################################################
+
+*.pid
+*.cache
