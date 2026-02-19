@@ -272,3 +272,14 @@ because this repository serves as an **architecture reference**, not a toy examp
 - [ADR-002: Delivery Guarantees](../decisions/adr-002-delivery-guarantees.md)
 - [ADR-003: Idempotency Strategy](../decisions/adr-003-idempotency-strategy.md)
 - [ADR-004: Retry & DLQ Strategy](../decisions/adr-004-retry-and-dlq.md)
+
+## 14. Test Structure Mapping
+
+Tests mirror the architectural layers:
+
+- Domain → Domain.UnitTests
+- Application → Application.UnitTests
+- Infrastructure → Infrastructure.IntegrationTests
+- Host → Host.SmokeTests
+
+This ensures test responsibility aligns with architectural boundaries.
