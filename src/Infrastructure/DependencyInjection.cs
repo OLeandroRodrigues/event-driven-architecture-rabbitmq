@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using EventDrivenArchitecture.RabbitMQ.Application.Interfaces;
+using EventDrivenArchitecture.RabbitMQ.Infrastructure.Observability.Correlation;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,9 @@ namespace EventDrivenArchitecture.RabbitMQ.Infrastructure
     {
         public static IServiceCollection AddInfraestructure(this IServiceCollection services) {
 
+            // Observability / Correlation
+            services.AddSingleton<ICorrelationContext, AsyncLocalCorrelationContext>();
+            services.AddSingleton<ICorrelationScope, CorrelationScopeAdapter>();
             // Register infrastructure services:
             // - Messaging (RabbitMQ)
             // - Idempotency store (Inbox)
