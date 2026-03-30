@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using EventDrivenArchitecture.RabbitMQ.Application.UseCases;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EventDrivenArchitecture.RabbitMQ.Application
@@ -12,10 +10,9 @@ namespace EventDrivenArchitecture.RabbitMQ.Application
     {
         public static IServiceCollection AppApplication(this IServiceCollection services) {
 
-            // Register application services (use cases, handlers, validators, etc.)
-            //
-            // Example (when you create them):
-            // services.AddScoped<CreateOrderUseCase>();
+            services.AddScoped<IdempotentUseCaseExecutor>();
+            services.AddScoped<ProcessOrderCreatedUseCase>();
+
             return services;
         }
     }
