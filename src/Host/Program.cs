@@ -6,7 +6,7 @@ var host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
     {
         services.AppApplication();
-        services.AddInfraestructure();
+        services.AddInfrastructure();
 
         // Composition root:
         // - Register Application services (use cases)

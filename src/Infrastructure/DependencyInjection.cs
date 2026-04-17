@@ -11,7 +11,7 @@ namespace EventDrivenArchitecture.RabbitMQ.Infrastructure
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddInfraestructure(this IServiceCollection services) {
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services) {
 
             // Observability / Correlation
             services.AddSingleton<ICorrelationContext, AsyncLocalCorrelationContext>();
