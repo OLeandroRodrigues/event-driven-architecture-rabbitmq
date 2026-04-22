@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\src\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\tests\EventDrivenArchitecture.RabbitMQ.Application.UnitTests\EventDrivenArchitecture.RabbitMQ.Application.UnitTests.csproj" />
   </ItemGroup>
 
 </Project>
