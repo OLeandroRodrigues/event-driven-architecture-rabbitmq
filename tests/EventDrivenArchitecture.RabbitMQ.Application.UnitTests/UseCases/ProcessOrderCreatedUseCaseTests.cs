@@ -17,9 +17,14 @@ public sealed class ProcessOrderCreatedUseCaseTests
             UtcNow = new DateTime(2026, 1, 23, 10, 0, 0, DateTimeKind.Utc)
         };
         var processor = new SpyOrderCreatedProcessor();
+        var publisher = new SpyEventPublisher();
 
         var executor = new IdempotentUseCaseExecutor(inbox, clock);
-        var useCase = new ProcessOrderCreatedUseCase(executor, processor);
+        var useCase = new ProcessOrderCreatedUseCase(
+            executor,
+            processor,
+            publisher,
+            clock);
 
         var messageId = "msg-001";
         var @event = new OrderCreated(
@@ -46,9 +51,14 @@ public sealed class ProcessOrderCreatedUseCaseTests
             UtcNow = new DateTime(2026, 1, 23, 10, 0, 0, DateTimeKind.Utc)
         };
         var processor = new SpyOrderCreatedProcessor();
+        var publisher = new SpyEventPublisher();
 
         var executor = new IdempotentUseCaseExecutor(inbox, clock);
-        var useCase = new ProcessOrderCreatedUseCase(executor, processor);
+        var useCase = new ProcessOrderCreatedUseCase(
+            executor,
+            processor,
+            publisher,
+            clock);
 
         var messageId = "msg-duplicate";
         var @event = new OrderCreated(
@@ -63,6 +73,7 @@ public sealed class ProcessOrderCreatedUseCaseTests
 
         // Assert
         Assert.Equal(1, processor.ExecutionCount);
+        Assert.Single(publisher.PublishedEventsOfType<OrderProcessed>());
     }
 
     [Fact]
@@ -75,9 +86,14 @@ public sealed class ProcessOrderCreatedUseCaseTests
             UtcNow = new DateTime(2026, 1, 23, 11, 30, 0, DateTimeKind.Utc)
         };
         var processor = new SpyOrderCreatedProcessor();
+        var publisher = new SpyEventPublisher();
 
         var executor = new IdempotentUseCaseExecutor(inbox, clock);
-        var useCase = new ProcessOrderCreatedUseCase(executor, processor);
+        var useCase = new ProcessOrderCreatedUseCase(
+            executor,
+            processor,
+            publisher,
+            clock);
 
         var messageId = "msg-processed";
         var @event = new OrderCreated(
@@ -107,9 +123,14 @@ public sealed class ProcessOrderCreatedUseCaseTests
         {
             ShouldThrow = true
         };
+        var publisher = new SpyEventPublisher();
 
         var executor = new IdempotentUseCaseExecutor(inbox, clock);
-        var useCase = new ProcessOrderCreatedUseCase(executor, processor);
+        var useCase = new ProcessOrderCreatedUseCase(
+            executor,
+            processor,
+            publisher,
+            clock);
 
         var messageId = "msg-failure";
         var @event = new OrderCreated(
@@ -124,5 +145,43 @@ public sealed class ProcessOrderCreatedUseCaseTests
 
         Assert.False(inbox.Contains(messageId));
         Assert.Equal(0, processor.ExecutionCount);
+        Assert.Empty(publisher.PublishedEventsOfType<OrderProcessed>());
+    }
+
+    [Fact]
+    public async Task ExecuteAsync_WhenMessageIdIsNew_ShouldPublishOrderProcessed()
+    {
+        // Arrange
+        var inbox = new FakeInboxStore();
+        var clock = new FakeClock
+        {
+            UtcNow = new DateTime(2026, 1, 23, 13, 0, 0, DateTimeKind.Utc)
+        };
+        var processor = new SpyOrderCreatedProcessor();
+        var publisher = new SpyEventPublisher();
+
+        var executor = new IdempotentUseCaseExecutor(inbox, clock);
+        var useCase = new ProcessOrderCreatedUseCase(
+            executor,
+            processor,
+            publisher,
+            clock);
+
+        var messageId = "msg-publish";
+        var @event = new OrderCreated(
+            OrderId: "order-publish",
+            CustomerId: "customer-001",
+            TotalAmount: 300.00m,
+            OccurredAtUtc: clock.UtcNow);
+
+        // Act
+        await useCase.ExecuteAsync(messageId, @event);
+
+        // Assert
+        var publishedEvent = Assert.Single(
+            publisher.PublishedEventsOfType<OrderProcessed>());
+
+        Assert.Equal(@event.OrderId, publishedEvent.OrderId);
+        Assert.Equal(clock.UtcNow, publishedEvent.ProcessedAtUtc);
     }
 }
