@@ -14,19 +14,32 @@ public sealed class InMemoryMessageDispatcherTests
     {
         // Arrange
         var inbox = new FakeInboxStore();
+
         var clock = new FakeClock
         {
             UtcNow = new DateTime(2026, 1, 23, 10, 0, 0, DateTimeKind.Utc)
         };
+
         var processor = new SpyOrderCreatedProcessor();
+        var publisher = new SpyEventPublisher();
+
         var executor = new IdempotentUseCaseExecutor(inbox, clock);
-        var useCase = new ProcessOrderCreatedUseCase(executor, processor);
+
+        var useCase = new ProcessOrderCreatedUseCase(
+            executor,
+            processor,
+            publisher,
+            clock);
+
         var correlationScope = new FakeCorrelationScope();
 
-        var dispatcher = new InMemoryMessageDispatcher(useCase, correlationScope);
+        var dispatcher = new InMemoryMessageDispatcher(
+            useCase,
+            correlationScope);
 
         var messageId = "msg-001";
         var correlationId = "corr-001";
+
         var @event = new OrderCreated(
             OrderId: "order-001",
             CustomerId: "customer-001",
@@ -45,18 +58,31 @@ public sealed class InMemoryMessageDispatcherTests
     {
         // Arrange
         var inbox = new FakeInboxStore();
+
         var clock = new FakeClock
         {
             UtcNow = new DateTime(2026, 1, 23, 10, 0, 0, DateTimeKind.Utc)
         };
+
         var processor = new SpyOrderCreatedProcessor();
+        var publisher = new SpyEventPublisher();
+
         var executor = new IdempotentUseCaseExecutor(inbox, clock);
-        var useCase = new ProcessOrderCreatedUseCase(executor, processor);
+
+        var useCase = new ProcessOrderCreatedUseCase(
+            executor,
+            processor,
+            publisher,
+            clock);
+
         var correlationScope = new FakeCorrelationScope();
 
-        var dispatcher = new InMemoryMessageDispatcher(useCase, correlationScope);
+        var dispatcher = new InMemoryMessageDispatcher(
+            useCase,
+            correlationScope);
 
         var messageId = "msg-duplicate";
+
         var @event = new OrderCreated(
             OrderId: "order-002",
             CustomerId: "customer-002",
@@ -69,6 +95,7 @@ public sealed class InMemoryMessageDispatcherTests
 
         // Assert
         Assert.Equal(1, processor.ExecutionCount);
+        Assert.Single(publisher.PublishedEventsOfType<OrderProcessed>());
     }
 
     [Fact]
@@ -76,16 +103,28 @@ public sealed class InMemoryMessageDispatcherTests
     {
         // Arrange
         var inbox = new FakeInboxStore();
+
         var clock = new FakeClock
         {
             UtcNow = DateTime.UtcNow
         };
+
         var processor = new SpyOrderCreatedProcessor();
+        var publisher = new SpyEventPublisher();
+
         var executor = new IdempotentUseCaseExecutor(inbox, clock);
-        var useCase = new ProcessOrderCreatedUseCase(executor, processor);
+
+        var useCase = new ProcessOrderCreatedUseCase(
+            executor,
+            processor,
+            publisher,
+            clock);
+
         var correlationScope = new FakeCorrelationScope();
 
-        var dispatcher = new InMemoryMessageDispatcher(useCase, correlationScope);
+        var dispatcher = new InMemoryMessageDispatcher(
+            useCase,
+            correlationScope);
 
         var @event = new OrderCreated(
             OrderId: "order-003",
@@ -106,16 +145,28 @@ public sealed class InMemoryMessageDispatcherTests
     {
         // Arrange
         var inbox = new FakeInboxStore();
+
         var clock = new FakeClock
         {
             UtcNow = DateTime.UtcNow
         };
+
         var processor = new SpyOrderCreatedProcessor();
+        var publisher = new SpyEventPublisher();
+
         var executor = new IdempotentUseCaseExecutor(inbox, clock);
-        var useCase = new ProcessOrderCreatedUseCase(executor, processor);
+
+        var useCase = new ProcessOrderCreatedUseCase(
+            executor,
+            processor,
+            publisher,
+            clock);
+
         var correlationScope = new FakeCorrelationScope();
 
-        var dispatcher = new InMemoryMessageDispatcher(useCase, correlationScope);
+        var dispatcher = new InMemoryMessageDispatcher(
+            useCase,
+            correlationScope);
 
         var @event = new OrderCreated(
             OrderId: "order-004",
@@ -131,3 +182,4 @@ public sealed class InMemoryMessageDispatcherTests
         Assert.Equal(1, correlationScope.BeginScopeCallCount);
     }
 }
+
